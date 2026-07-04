@@ -104,7 +104,7 @@ export default function Ranks() {
 
                 {/* Direct Purchase Link via WA */}
                 <a
-                  href={`https://wa.me/628388567246?text=Halo%20Admin%20MyEco%20SMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20${rank.name}%20di%20server%20Season%202.`}
+                  href={`https://wa.me/628388567246?text=Halo%20Admin%20Aksa%20MyEco%20SMP,%20saya%20tertarik%20untuk%20membeli%20Rank%20${rank.name}%20di%20server%20Season%202.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-3 px-4 rounded-xl font-bold text-center text-xs transition-all duration-300 flex items-center justify-center gap-2 ${

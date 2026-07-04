@@ -20,15 +20,15 @@ export default function App() {
     <div 
       id="app-root"
       className="min-h-screen bg-[#040805] text-[#e2e8f0] font-sans antialiased relative"
-      style={{ 
-        backgroundImage: `url('/background.webp')`,
-        backgroundAttachment: 'fixed',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover'
-      }}
     >
-      {/* Background dark atmospheric mask to ensure high readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040805]/95 via-brand-forest/98 to-[#020503]/98 pointer-events-none z-0" />
+      {/* Dedicated background image layer with rich visibility but keeps readability perfect */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed opacity-20 pointer-events-none z-0"
+        style={{ backgroundImage: `url('/background.webp')` }}
+      />
+
+      {/* Background dark atmospheric mask to blend with the dark forest aesthetic */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#040805]/60 via-brand-forest/85 to-[#020503]/95 pointer-events-none z-0" />
       
       {/* App Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
