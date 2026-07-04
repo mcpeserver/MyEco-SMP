@@ -1,0 +1,16 @@
+{
+  "name": "MyEco SMP Season 2",
+  "short_name": "MyEco SMP",
+  "description": "Website resmi server Minecraft MyEco SMP Season 2",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1b10",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
