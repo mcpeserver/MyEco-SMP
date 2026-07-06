@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { siteConfig } from "../config/site";
-import { Menu, X, ArrowUpRight, ShieldCheck, Heart } from "lucide-react";
+import { useDevAPI } from "../hooks/useDevAPI";
+import { Menu, X, ArrowUpRight, ShieldCheck, Heart, ExternalLink, Users } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { devData } = useDevAPI();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,25 +30,60 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Mini Announcement Bar - Developed by RAN DEV */}
+      {/* Mini Announcement Bar - Developed by RAN DEV & Developer Community Info */}
       <div 
         id="announcement-bar"
-        className="bg-gradient-to-r from-brand-moss via-brand-forest to-brand-moss text-xs border-b border-brand-emerald/20 text-center py-2 px-4 flex flex-col sm:flex-row items-center justify-center gap-2 text-brand-emerald font-mono tracking-wide"
+        className="bg-gradient-to-r from-brand-moss via-[#051108] to-brand-moss text-[11px] sm:text-xs border-b border-brand-emerald/20 py-2 px-4 flex flex-col lg:flex-row items-center justify-between gap-3 text-brand-emerald font-mono tracking-wide"
       >
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-2 h-2 rounded-full bg-brand-emerald animate-pulse"></span>
-          <span className="font-semibold">{siteConfig.watermark}</span>
+        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
+          <div className="flex items-center gap-1.5">
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulse"></span>
+            <span className="text-gray-400">Crafted by:</span>
+            <a 
+              href={`https://wa.me/62${devData.whatsapp.replace(/^0/, "")}`} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-brand-emerald font-bold hover:text-brand-gold hover:underline transition-all"
+            >
+              {devData.name}
+            </a>
+          </div>
+          <span className="hidden sm:inline text-brand-emerald/30">|</span>
+          <a 
+            href={`https://wa.me/62${devData.whatsapp.replace(/^0/, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-gold transition-colors font-sans"
+          >
+            WA: <span className="underline">{devData.phone}</span>
+          </a>
         </div>
-        <span className="hidden sm:inline text-brand-emerald/40">|</span>
-        <a 
-          href={siteConfig.developerWhatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 hover:text-brand-gold transition-colors font-sans text-xs bg-brand-emerald/10 px-2.5 py-0.5 rounded-full border border-brand-emerald/30 group"
-        >
-          <span>Kontak Developer: {siteConfig.developerNumber}</span>
-          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+
+        <div className="flex flex-wrap items-center justify-center lg:justify-end gap-3 font-sans text-[11px]">
+          {/* Portfolio link - "lihat website website server lain" */}
+          <a 
+            href={devData.portfolio}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 bg-brand-emerald/10 hover:bg-brand-emerald/20 text-brand-emerald hover:text-brand-gold px-2.5 py-1 rounded-full border border-brand-emerald/20 transition-all group"
+          >
+            <ExternalLink className="w-3 h-3" />
+            <span>Website Server Lain</span>
+            <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+
+          {/* Developer Community info & link */}
+          <a 
+            href={devData.communityWebsite || devData.communityDiscord}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 bg-brand-gold/10 hover:bg-brand-gold/20 text-brand-gold px-2.5 py-1 rounded-full border border-brand-gold/20 transition-all group"
+          >
+            <Users className="w-3 h-3" />
+            <span>{devData.communityName}</span>
+            <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </div>
       </div>
 
       {/* Main Navbar */}

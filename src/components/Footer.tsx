@@ -1,7 +1,9 @@
 import { siteConfig } from "../config/site";
-import { MessageSquare, ArrowUp, Compass, Heart } from "lucide-react";
+import { useDevAPI } from "../hooks/useDevAPI";
+import { MessageSquare, ArrowUp, Compass, Heart, Users, ExternalLink } from "lucide-react";
 
 export default function Footer() {
+  const { devData } = useDevAPI();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -32,23 +34,44 @@ export default function Footer() {
         </div>
 
         {/* Center: Developer Watermark / Credit */}
-        <div className="flex flex-col items-center text-center">
-          <p className="text-xs text-gray-400 flex items-center gap-1">
+        <div className="flex flex-col items-center text-center gap-2">
+          <p className="text-xs text-gray-400 flex items-center justify-center flex-wrap gap-1">
             <span>Website crafted with</span>
             <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse" />
             <span>by</span>
             <a 
-              href={siteConfig.developerWhatsapp}
+              href={devData.portfolio}
               target="_blank"
               rel="noopener noreferrer"
               className="text-brand-emerald hover:text-brand-gold font-bold transition-all font-mono"
             >
-              {siteConfig.developerName}
+              {devData.name}
             </a>
           </p>
-          <span className="text-[10px] text-gray-600 font-mono mt-1">
-            Support Admin WA: {siteConfig.adminNumber}
-          </span>
+
+          <div className="flex flex-wrap items-center justify-center gap-2 text-[10px] font-mono text-gray-500">
+            <a 
+              href={devData.portfolio} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-brand-emerald transition-colors flex items-center gap-0.5"
+            >
+              <ExternalLink className="w-3 h-3" /> Website Portfolio
+            </a>
+            <span>•</span>
+            <a 
+              href={devData.communityWebsite || devData.communityDiscord} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-brand-gold transition-colors flex items-center gap-0.5"
+            >
+              <Users className="w-3.5 h-3.5" /> {devData.communityName}
+            </a>
+            <span>•</span>
+            <span className="text-gray-600">
+              Support Admin WA: {siteConfig.adminNumber}
+            </span>
+          </div>
         </div>
 
         {/* Right: Quick back to top */}
