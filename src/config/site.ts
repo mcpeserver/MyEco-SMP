@@ -38,7 +38,7 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "MyEco SMP Season 2",
+  name: "MyEco SMP",
   domain: "myeco.biz.id",
   ipJava: "play.myeco.biz.id",
   ipBedrock: "play.myeco.biz.id",
@@ -47,7 +47,7 @@ export const siteConfig: SiteConfig = {
   version: "1.26.32.2",
   discord: "https://discord.gg/qnThDxmaVE",
   downloadMinecraft: "https://www.mediafire.com/file/2maql9qsu054qjj/MC_Patch_1-26-32-2_Musc_64%2632bit.apk/file",
-  adminWhatsapp: "https://wa.me/628388567246?text=Halo%20Admin%20Aksa%20MyEco%20SMP,%20saya%20ingin%20membeli%20Rank%20di%20server%20Season%202.",
+  adminWhatsapp: "https://wa.me/628388567246?text=Halo%20Admin%20Aksa%20MyEco%20SMP,%20saya%20ingin%20membeli%20Rank%20di%20server.",
   adminNumber: "08388567246 [Aksa]",
   developerWhatsapp: "https://wa.me/62895602592430?text=Halo%20RAN%20DEV,%20saya%20tertarik%20dengan%20jasa%20development%20website%20Anda.",
   developerNumber: "0895602592430",
@@ -127,11 +127,10 @@ export const siteConfig: SiteConfig = {
     }
   ],
   seo: {
-    title: "MyEco SMP Season 2 - Server Minecraft Survival Economy Indonesia",
-    description: "Gabung sekarang di MyEco SMP Season 2! Server Minecraft Survival Economy terbaik dengan tema Village, Gold Coin, Emerald, dan Community. Mainkan di Java & Bedrock.",
+    title: "MyEco SMP - Server Minecraft Survival Economy Indonesia",
+    description: "Gabung sekarang di MyEco SMP! Server Minecraft Survival Economy terbaik dengan tema Village, Gold Coin, Emerald, dan Community. Mainkan di Java & Bedrock.",
     keywords: [
       "MyEco SMP",
-      "MyEco SMP Season 2",
       "Server Minecraft Indonesia",
       "Survival Economy Minecraft",
       "Minecraft Bedrock Indonesia",

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://myecosmp.com/sitemap.xml
+Sitemap: https://myeco.biz.id/sitemap.xml

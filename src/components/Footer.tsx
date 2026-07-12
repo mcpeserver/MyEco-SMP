@@ -2,7 +2,11 @@ import { siteConfig } from "../config/site";
 import { useDevAPI } from "../hooks/useDevAPI";
 import { MessageSquare, ArrowUp, Compass, Heart, Users, ExternalLink } from "lucide-react";
 
-export default function Footer() {
+interface FooterProps {
+  setActiveTab: (tab: "home" | "features" | "ranks" | "server-info") => void;
+}
+
+export default function Footer({ setActiveTab }: FooterProps) {
   const { devData } = useDevAPI();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -16,15 +20,21 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
         
         {/* Left: Brand logo & Copyright */}
-        <div className="flex items-center gap-3">
+        <div 
+          onClick={() => {
+            setActiveTab("home");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }} 
+          className="flex items-center gap-3 cursor-pointer group"
+        >
           <img 
-            src="/logo.png" 
+            src={devData.logo || "/logo.jpg"} 
             alt="MyEco SMP Logo" 
-            className="w-10 h-10 object-contain"
+            className="w-10 h-10 object-contain transition-transform group-hover:scale-105"
             referrerPolicy="no-referrer"
           />
           <div className="flex flex-col">
-            <span className="font-display font-bold text-white text-sm tracking-wide">
+            <span className="font-display font-bold text-white text-sm tracking-wide group-hover:text-brand-emerald transition-colors">
               {siteConfig.name}
             </span>
             <span className="text-[11px] text-gray-500 mt-0.5">

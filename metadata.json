@@ -1,6 +1,6 @@
 {
-  "name": "MyEco SMP Season 2",
-  "description": "Website resmi server Minecraft MyEco SMP Season 2 dengan tema Survival Economy, Village, Emerald, dan Community.",
+  "name": "MyEco SMP",
+  "description": "Website resmi server Minecraft MyEco SMP dengan tema Survival Economy, Village, Emerald, dan Community.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
